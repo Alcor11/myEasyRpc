@@ -9,33 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>alcor-rpc-example</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.alcor</groupId>
-            <artifactId>alcor-rpc-proto</artifactId>
+            <artifactId>alcor-rpc-client</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alcor</groupId>
-            <artifactId>alcor-rpc-codec</artifactId>
+            <artifactId>alcor-rpc-server</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alcor</groupId>
-            <artifactId>alcor-rpc-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alcor</groupId>
-            <artifactId>alcor-rpc-transport</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
         </dependency>
     </dependencies>
-    <artifactId>alcor-rpc-client</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

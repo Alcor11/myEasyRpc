@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author guchun
- * @description 管理service暴露的服务
+ * @description 管理rpc暴露的服务
  * @date 2022/6/6 20:54
  */
 @Slf4j

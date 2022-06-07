@@ -22,18 +22,18 @@ public class ServiceDescriptor {
     private String[] parameterTypes;
 
     public static ServiceDescriptor from(Class clazz, Method method) {
-        ServiceDescriptor sdq = new ServiceDescriptor();
-        sdq.setClazz(clazz.getName());
-        sdq.setMethod(method.getName());
-        sdq.setReturnType(method.getReturnType().getName());
+        ServiceDescriptor sdp = new ServiceDescriptor();
+        sdp.setClazz(clazz.getName());
+        sdp.setMethod(method.getName());
+        sdp.setReturnType(method.getReturnType().getName());
 
         Class[] parameterClasses = method.getParameterTypes();
         String[] parameterTypes = new String[parameterClasses.length];
         for (int i = 0; i < parameterTypes.length; i++) {
             parameterTypes[i] = parameterClasses[i].getName();
         }
-        sdq.setParameterTypes(parameterTypes);
-        return sdq;
+        sdp.setParameterTypes(parameterTypes);
+        return sdp;
     }
 
     @Override

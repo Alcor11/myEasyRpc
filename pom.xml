@@ -15,6 +15,7 @@
         <module>alcor-rpc-transport</module>
         <module>alcor-rpc-server</module>
         <module>alcor-rpc-client</module>
+        <module>alcor-rpc-example</module>
     </modules>
 
     <properties>
