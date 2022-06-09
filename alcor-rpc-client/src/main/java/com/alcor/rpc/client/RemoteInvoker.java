@@ -42,10 +42,11 @@ public class RemoteInvoker implements InvocationHandler {
     public Object invoke(Object proxy,
                          Method method,
                          Object[] args) throws Throwable {
+        // 动态代理实现类，将参数、方法封装到Request协议中
         Request request = new Request();
         request.setService(ServiceDescriptor.from(clazz, method));
         request.setParameters(args);
-
+        // 调用invokeRemote方法发送并获取resp
         Response resp = invokeRemote(request);
         if (resp == null || resp.getCode() != 0) {
             throw new IllegalStateException("fail to invoke remote" + resp);

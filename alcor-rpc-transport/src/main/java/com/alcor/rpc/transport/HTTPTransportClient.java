@@ -5,12 +5,13 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
  * @author guchun
- * @description TODO
+ * @description 客户端
  * @date 2022/6/6 20:26
  */
 public class HTTPTransportClient implements TransportClient{

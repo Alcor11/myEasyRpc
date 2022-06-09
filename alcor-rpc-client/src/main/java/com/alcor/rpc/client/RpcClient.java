@@ -38,6 +38,7 @@ public class RpcClient {
     }
 
     public <T> T getProxy(Class<T> clazz) {
+        // java自带动态代理
         return (T) Proxy.newProxyInstance(
                 getClass().getClassLoader(),
                 new Class[]{clazz},
