@@ -25,7 +25,11 @@ public class RpcServer {
     private TransportServer net;
     private Encoder encoder;
     private Decoder decoder;
+
     private ServiceManager serviceManager;
+
+//    private RedisRegistry serviceManager;
+
     private ServiceInvoker serviceInvoker;
 
     public RpcServer() {

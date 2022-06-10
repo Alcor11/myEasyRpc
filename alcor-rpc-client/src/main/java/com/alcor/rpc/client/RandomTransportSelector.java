@@ -41,6 +41,7 @@ public class RandomTransportSelector implements TransportSelector{
 
     @Override
     public synchronized TransportClient select() {
+        // TODO 获取
         int i = new Random().nextInt(clients.size());
         return clients.remove(i);
     }

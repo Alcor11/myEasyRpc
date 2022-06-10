@@ -13,6 +13,7 @@
         <module name="alcor-rpc-proto" />
         <module name="alcor-rpc-example" />
         <module name="alcor-rpc-client" />
+        <module name="alcor-rpc-registry" />
         <module name="alcor-rpc-common" />
       </profile>
     </annotationProcessing>

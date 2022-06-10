@@ -2,6 +2,7 @@ package com.alcor.rpc;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -14,7 +15,7 @@ import java.util.Arrays;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ServiceDescriptor {
+public class ServiceDescriptor implements Serializable {
     private String clazz;
     private String method;
     private String returnType;

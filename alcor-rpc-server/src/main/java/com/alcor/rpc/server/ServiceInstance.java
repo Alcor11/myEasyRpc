@@ -2,7 +2,9 @@ package com.alcor.rpc.server;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 
 /**
@@ -12,7 +14,8 @@ import java.lang.reflect.Method;
  */
 @Data
 @AllArgsConstructor
-public class ServiceInstance {
+@NoArgsConstructor
+public class ServiceInstance implements Serializable {
     private Object target;
     private Method method;
 
