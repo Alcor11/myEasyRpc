@@ -15,6 +15,11 @@
             <artifactId>jedis</artifactId>
             <version>4.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.alcor</groupId>
+            <artifactId>alcor-rpc-proto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
     <artifactId>alcor-rpc-registry</artifactId>
 

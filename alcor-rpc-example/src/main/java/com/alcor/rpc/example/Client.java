@@ -1,7 +1,6 @@
 package com.alcor.rpc.example;
 
 import com.alcor.rpc.client.RpcClient;
-import com.alcor.rpc.client.RpcClientConfig;
 
 /**
  * @author guchun
@@ -10,7 +9,7 @@ import com.alcor.rpc.client.RpcClientConfig;
  */
 public class Client {
     public static void main(String[] args) {
-        RpcClient client = new RpcClient();
+        RpcClient client = new RpcClient(CalcService.class);
         CalcService service = client.getProxy(CalcService.class);
 
         int r1 = service.add(1, 2);

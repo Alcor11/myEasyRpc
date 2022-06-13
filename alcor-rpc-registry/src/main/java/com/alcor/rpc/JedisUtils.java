@@ -15,12 +15,17 @@ public class JedisUtils {
 
     private static Jedis jedis = new Jedis("127.0.0.1", 6379);
 
-    public static void recordCache(byte[] key, byte[] value) {
-        jedis.set(key, value);
+    public static <T> void recordCache(T key, T value) {
+        System.out.println(value);
+        byte[] k = serialize(key);
+        System.out.println(k);
+        byte[] v = serialize(value);
+        System.out.println(v);
+        jedis.set(k, v);
     }
 
-    public static byte[] getObject(byte[] key) {
-        return jedis.get(key);
+    public static <T> Object getObject(T key) {
+        return deserialize(jedis.get(serialize(key)));
     }
 
     public static byte[] serialize(Object object) {

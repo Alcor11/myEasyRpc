@@ -1,5 +1,7 @@
 package com.alcor.rpc.client;
 
+import com.alcor.rpc.Registry;
+import com.alcor.rpc.RegistryServer;
 import com.alcor.rpc.codec.Decoder;
 import com.alcor.rpc.codec.Encoder;
 import com.alcor.rpc.common.utils.ReflectionUtils;
@@ -8,7 +10,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * @author guchun
- * @description TODO
+ * @description Rpc
  * @date 2022/6/7 15:18
  */
 public class RpcClient {
@@ -18,10 +20,16 @@ public class RpcClient {
     private Decoder decoder;
     private TransportSelector selector;
 
-    public RpcClient() {
-        this(new RpcClientConfig());
+    private Registry registry;
+
+    public <T> RpcClient(Class<T> classInstance) {
+        // 从注册中心拿到链接
+        registry = new RegistryServer();
+        RpcClientConfig config = new RpcClientConfig();
+        config.setServers(registry.lookup(classInstance));
+        initClient(config);
     }
-    public RpcClient(RpcClientConfig config) {
+    private void initClient(RpcClientConfig config) {
         this.config = config;
 
         this.encoder = ReflectionUtils.newInstance(this.config.getEncoderClass());
@@ -29,7 +37,6 @@ public class RpcClient {
         this.selector = ReflectionUtils.newInstance(this.config.getSelectorClass());
 
         this.selector.init(
-                // TODO 这里访问注册中心获取servers
                 this.config.getServers(),
                 this.config.getConnectCount(),
                 this.config.getTransportClass()

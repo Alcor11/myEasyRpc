@@ -9,6 +9,7 @@ import com.alcor.rpc.transport.HTTPTransportClient;
 import com.alcor.rpc.transport.TransportClient;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,8 +28,9 @@ public class RpcClientConfig {
             RandomTransportSelector.class;
     private int connectCount = 1;
     // 发现服务后，设置config
-    private List<Peer> servers = Arrays.asList(
-            new Peer("127.0.0.1", 3000)
-    );
-
+//    private List<Peer> servers = Arrays.asList(
+//            new Peer("127.0.0.1", 3000)
+//    );
+    private List<Peer> servers = new ArrayList<>();
+    
 }

@@ -3,6 +3,8 @@ package com.alcor.rpc;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author guchun
  * @description 网络传输的一个端点
@@ -10,7 +12,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Peer {
+public class Peer implements Serializable {
 
     private String host;
 

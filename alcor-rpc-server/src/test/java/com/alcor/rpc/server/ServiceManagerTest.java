@@ -1,5 +1,6 @@
 package com.alcor.rpc.server;
 
+import com.alcor.rpc.Peer;
 import com.alcor.rpc.Request;
 import com.alcor.rpc.ServiceDescriptor;
 import com.alcor.rpc.common.utils.ReflectionUtils;
@@ -7,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author guchun
@@ -21,13 +24,27 @@ public class ServiceManagerTest {
         sm = new ServiceManager();
 
         TestInterface bean = new TestClass();
-        sm.register(TestInterface.class, bean);
+        List<Peer> peerList = new ArrayList<>();
+
+        Peer peer1 = new Peer("127.0.0.1", 3000);
+        Peer peer2 = new Peer("127.0.0.1", 3000);
+        peerList.add(peer1);
+        peerList.add(peer2);
+
+        sm.register(TestInterface.class, bean, peerList);
     }
 
     @Test
     public void testRegister() {
+        List<Peer> peerList = new ArrayList<>();
+
+        Peer peer1 = new Peer("127.0.0.1", 3000);
+        Peer peer2 = new Peer("127.0.0.1", 3000);
+        peerList.add(peer1);
+        peerList.add(peer2);
+
         TestInterface bean = new TestClass();
-        sm.register(TestInterface.class, bean);
+        sm.register(TestInterface.class, bean, peerList);
     }
 
     @Test

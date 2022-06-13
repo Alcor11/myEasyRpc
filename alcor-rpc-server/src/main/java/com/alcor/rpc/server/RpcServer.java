@@ -1,5 +1,6 @@
 package com.alcor.rpc.server;
 
+import com.alcor.rpc.Peer;
 import com.alcor.rpc.Request;
 import com.alcor.rpc.Response;
 import com.alcor.rpc.codec.Decoder;
@@ -13,6 +14,8 @@ import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author guchun
@@ -52,7 +55,9 @@ public class RpcServer {
 
 
     public <T> void register(Class<T> interfaceClass, T bean) {
-        serviceManager.register(interfaceClass, bean);
+        List<Peer> peerList = new ArrayList<>();
+        peerList.add(new Peer("127.0.0.1", config.getPort()));
+        serviceManager.register(interfaceClass, bean, peerList);
     }
 
     public void start() {
