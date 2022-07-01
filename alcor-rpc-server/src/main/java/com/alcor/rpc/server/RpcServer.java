@@ -14,6 +14,8 @@ import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,9 +56,11 @@ public class RpcServer {
     }
 
 
-    public <T> void register(Class<T> interfaceClass, T bean) {
+    public <T> void register(Class<T> interfaceClass, T bean) throws UnknownHostException {
         List<Peer> peerList = new ArrayList<>();
-        peerList.add(new Peer("127.0.0.1", config.getPort()));
+        // 获取部署端的localhost
+        String host = InetAddress.getLocalHost().getHostAddress();
+        peerList.add(new Peer(host, config.getPort()));
         serviceManager.register(interfaceClass, bean, peerList);
     }
 

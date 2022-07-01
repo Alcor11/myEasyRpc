@@ -59,12 +59,11 @@ public class RemoteInvoker implements InvocationHandler {
         TransportClient client = null;
 
         try {
-            // TODO : 在这里从注册中心获取
             client = selector.select();
 
             byte[] outBytes = encoder.encode(request);
             InputStream inputStream = client.write(new ByteArrayInputStream(outBytes));
-
+            System.out.println(inputStream);
             byte[] inBytes = IOUtils.readFully(inputStream, inputStream.available());
             resp = decoder.decode(inBytes, Response.class);
         } catch (IOException e) {

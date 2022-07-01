@@ -29,6 +29,11 @@ public class RpcClient {
         config.setServers(registry.lookup(classInstance));
         initClient(config);
     }
+    public <T> RpcClient(Class<T> classInstance, RpcClientConfig config) {
+        registry = new RegistryServer();
+        config.setServers(registry.lookup(classInstance));
+        initClient(config);
+    }
     private void initClient(RpcClientConfig config) {
         this.config = config;
 

@@ -2,13 +2,15 @@ package com.alcor.rpc;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author guchun
  * @description 表示RPC的返回
  * @date 2022/6/6 19:37
  */
 @Data
-public class Response {
+public class Response implements Serializable {
     /**
      * 服务返回编码： 0-success  else fail
      */

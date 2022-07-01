@@ -1,6 +1,9 @@
 package com.alcor.rpc.example;
 
 import com.alcor.rpc.client.RpcClient;
+import com.alcor.rpc.client.RpcClientConfig;
+import com.alcor.rpc.codec.HessianDecoder;
+import com.alcor.rpc.codec.HessianEncoder;
 
 /**
  * @author guchun
@@ -9,7 +12,10 @@ import com.alcor.rpc.client.RpcClient;
  */
 public class Client {
     public static void main(String[] args) {
-        RpcClient client = new RpcClient(CalcService.class);
+        RpcClientConfig rpcClientConfig = new RpcClientConfig();
+        rpcClientConfig.setEncoderClass(HessianEncoder.class);
+        rpcClientConfig.setDecoderClass(HessianDecoder.class);
+        RpcClient client = new RpcClient(CalcService.class, rpcClientConfig);
         CalcService service = client.getProxy(CalcService.class);
 
         int r1 = service.add(1, 2);

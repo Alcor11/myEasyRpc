@@ -17,6 +17,7 @@
         <module>alcor-rpc-client</module>
         <module>alcor-rpc-example</module>
         <module>alcor-rpc-registry</module>
+
     </modules>
 
     <properties>
@@ -30,6 +31,7 @@
         <lombok.version>1.18.24</lombok.version>
         <slf4japi.version>1.7.26</slf4japi.version>
         <logback.version>1.2.3</logback.version>
+        <hessian.version>4.0.38</hessian.version>
     </properties>
     <dependencyManagement>
         <dependencies>
