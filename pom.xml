@@ -32,6 +32,8 @@
         <slf4japi.version>1.7.26</slf4japi.version>
         <logback.version>1.2.3</logback.version>
         <hessian.version>4.0.38</hessian.version>
+        <netty.version>4.1.42.Final</netty.version>
+        <kryo.version>4.0.2</kryo.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -74,6 +76,16 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>${kryo.version}</version>
         </dependency>
     </dependencies>
 
