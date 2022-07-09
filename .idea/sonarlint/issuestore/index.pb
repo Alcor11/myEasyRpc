@@ -19,8 +19,6 @@ G
 alcor-rpc-proto/pom.xml,e/b/ebb594d228697c520a2a85637789cf143bbc9396
 K
 alcor-rpc-transport/pom.xml,a/c/ac640da968716421600b8335490fbfaf65578597
-I
-alcor-rpc-example/pom.xml,f/9/f945d11fe8a24b8f97a53b34b549d6ca9bf9a05a
 ~
 Nalcor-rpc-common/src/main/java/com/alcor/rpc/common/utils/ReflectionUtils.java,0/2/02d5163d70bb4465d836e116c36e7a1d4736e1e3
 n
@@ -53,8 +51,6 @@ l
 <alcor-rpc-registry/src/main/java/com/alcor/rpc/Registry.java,f/f/ff3cdb3041d8c4369a30fc66858fced1abbe34eb
 w
 Galcor-rpc-server/src/main/java/com/alcor/rpc/server/ServiceManager.java,9/f/9faa19f94a678e3c64658b8a31079395b927ceee
-‚
-Ralcor-rpc-transport/src/main/java/com/alcor/rpc/transport/HTTPTransportClient.java,2/2/2205898aff07e77c72e9654c68146bda7591cafa
 x
 Halcor-rpc-server/src/main/java/com/alcor/rpc/server/ServiceInstance.java,1/9/199a59344e9225c4650a697dd5f9b8101ed524e3
 w
@@ -87,3 +83,5 @@ H
 alcor-rpc-server/pom.xml,f/7/f70300d1e845b0dae50e48d5f72bcd66f5ff003e
 ~
 Nalcor-rpc-transport/src/main/java/com/alcor/rpc/transport/TransportClient.java,1/f/1fa508ec4e3d8915683b1af8e9558bffdd696f26
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
