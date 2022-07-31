@@ -3,21 +3,28 @@ package com.alcor.rpc.server;
 import com.alcor.rpc.Peer;
 import com.alcor.rpc.Request;
 import com.alcor.rpc.Response;
+import com.alcor.rpc.annotation.RpcService;
 import com.alcor.rpc.codec.Decoder;
 import com.alcor.rpc.codec.Encoder;
 import com.alcor.rpc.common.utils.ReflectionUtils;
 import com.alcor.rpc.transport.RequestHandler;
 import com.alcor.rpc.transport.TransportServer;
+import io.netty.util.internal.ReflectionUtil;
+import javafx.scene.effect.Reflection;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
+import org.reflections.Reflections;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.annotation.Annotation;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author guchun
@@ -57,11 +64,31 @@ public class RpcServer {
 
 
     public <T> void register(Class<T> interfaceClass, T bean) throws UnknownHostException {
-        List<Peer> peerList = new ArrayList<>();
-        // 获取部署端的localhost
-        String host = InetAddress.getLocalHost().getHostAddress();
-        peerList.add(new Peer(host, config.getPort()));
-        serviceManager.register(interfaceClass, bean, peerList);
+        Reflections reflection = new Reflections("com.alcor.rpc.example");
+        Set<Class<?>> classes = reflection.getTypesAnnotatedWith(RpcService.class);
+        System.out.println("注册。。。。。。");
+        System.out.println(classes.toArray().toString());
+
+        for (Class<?> clazz : classes) {
+
+            System.out.println("注册。。。。。。" + clazz.getName());
+            Object classBean = ReflectionUtils.newInstance(clazz);
+            String interfaceName = classBean.getClass().getAnnotation(RpcService.class).value().getName();
+            Class<?> interClass = null;
+            try {
+                interClass = Class.forName(interfaceName);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("注册。。。。。。" +classBean.toString());
+            List<Peer> peerList = new ArrayList<>();
+            // 获取部署端的localhost
+            String host = InetAddress.getLocalHost().getHostAddress();
+            peerList.add(new Peer(host, config.getPort()));
+            serviceManager.register((Class<T>) interClass, (T) classBean, peerList);
+        }
+
+
     }
 
     public void start() {

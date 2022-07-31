@@ -29,7 +29,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * 获取某个class的共有方法
+     * 获取某个class的public方法
      * @param clazz
      * @return
      */

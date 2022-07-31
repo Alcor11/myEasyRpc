@@ -1,5 +1,7 @@
 package com.alcor.rpc.example;
 
+import com.alcor.rpc.annotation.RpcService;
+
 /**
  * @author guchun
  * @description TODO

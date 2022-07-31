@@ -1,5 +1,7 @@
 package com.alcor.rpc.example;
 
+import com.alcor.rpc.annotation.RpcService;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * @description TODO
  * @date 2022/6/7 15:36
  */
+@RpcService(CalcService.class)
 public class CalcServiceImpl implements CalcService, Serializable {
     @Override
     public Integer add(Integer a, Integer b) {
